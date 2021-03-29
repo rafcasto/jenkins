@@ -2,9 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Code coverage') {
             steps {
-                echo 'Building..'
+                sh './mvnw jacoco:report'
+                publishHTML (target:[
+                    reportDir: 'build/reports/jacoco/test/html'
+                    reportFiles: 'index.html'
+                    reportName: "JaCoCo Report"
+                ])
             }
         }
         stage('Test') {
