@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-     stage('Verify Code Coverage') {
+     stage('Code Coverage') {
                 steps {
                     echo './mvnw clean verify'
                 }
