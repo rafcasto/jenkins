@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-    stage('Build') {
+    stage('Test') {
                 steps {
-                    sh './mvnw compile'
+                    sh './mvnw test'
                 }
             }
         stage('Code coverage') {
