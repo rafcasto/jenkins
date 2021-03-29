@@ -19,5 +19,6 @@ class CalculatorServiceTest {
     void sumNegatives() {
         assertEquals(-5,calculatorService.sum(-2,-3));
     }
+    
 
 }
