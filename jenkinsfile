@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+    stage('Build') {
+                steps {
+                    sh './mvnw compile'
+                }
+            }
         stage('Code coverage') {
             steps {
                 sh './mvnw jacoco:report'
@@ -12,11 +17,7 @@ pipeline {
                 ])
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
+
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
