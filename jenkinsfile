@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+     stage('Verify Code Coverage') {
+                steps {
+                    echo './mvnw clean verify'
+                }
+            }
     stage('Test') {
                 steps {
                     sh './mvnw test'
@@ -13,10 +18,6 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+
     }
 }
