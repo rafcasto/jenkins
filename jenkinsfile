@@ -2,16 +2,7 @@ pipeline {
     agent any
 
     stages {
-     stage('Code Coverage') {
-                steps {
-                    echo './mvnw clean verify'
-                }
-            }
-    stage('Test') {
-                steps {
-                    sh './mvnw test'
-                }
-            }
+
         stage('Code coverage') {
             steps {
                 sh './mvnw jacoco:report'
