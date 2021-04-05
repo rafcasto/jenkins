@@ -1,19 +1,21 @@
-pipeline {
+pipeline
+{
     agent any
+    stages
+    {
+      stage('Code coverage')
+      {
+        steps
+        {
+             sh './mvnw clean verify'
+             publishHTML(target:[
+                   reportDir: 'target/site/jacoco',
+                   reportFiles: 'index.html',
+                   reportName: 'Coverage Report'
 
-    stages {
+               ])
 
-        stage('Code coverage') {
-            steps {
-                sh './mvnw clean verify'
-                publishHTML(target:[
-                    reportDir: 'build/reports/jacoco/test/html',
-                    reportFiles: 'index.html',
-                    reportName: 'JaCoCo Report'
-
-                ])
-
-            }
+           }
         }
 
 
